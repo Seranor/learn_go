@@ -63,8 +63,8 @@ func main() {
 	*/
 	s3 := "hello"             // 字节
 	fmt.Printf("%c\n", s3[0]) // %c 将整数值格式化为对应的 Unicode 字符
-	//s4 := "hello,go教程" // 此时类型是 rune 类型
-
+	s4 := "hello go教程"        // 此时类型是 rune 类型
+	fmt.Printf("%s\n", string([]rune(s4)[8]))
 }
 
 /*
