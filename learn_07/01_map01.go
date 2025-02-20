@@ -32,4 +32,5 @@ func main() {
 	// 删除元素，内置
 	delete(stu3, "age")
 	fmt.Println(stu3)
+
 }
