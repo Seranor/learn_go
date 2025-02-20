@@ -17,9 +17,15 @@ func getInfo() (string, int) {
 }
 
 func foo() (z int) {
-	return
+	z = 100
+	return // return z
 }
 
+func calc(x, y int) (sum, sub int) {
+	sum = x + y
+	sub = x - y
+	return
+}
 func main() {
 	// 返回一个值
 	res := add5(1, 2)
@@ -33,5 +39,8 @@ func main() {
 	fmt.Println(ret1, ret2)
 
 	// 返回值命名
-
+	ret := foo()
+	fmt.Println(ret)
+	s1, s2 := calc(7, 3)
+	fmt.Println(s1, s2)
 }
