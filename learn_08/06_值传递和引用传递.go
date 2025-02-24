@@ -12,6 +12,10 @@ func bar2(s []int) {
 	fmt.Printf("bar2 函数的 s 地址2 %p\n", s)
 	fmt.Println(s)
 }
+func f1(a *int) {
+	*a = 100
+	return
+}
 func main() {
 	// 值传递
 	//var x = 100
@@ -30,4 +34,9 @@ func main() {
 	fmt.Printf("main 函数的 s 地址 %p\n", s)
 	bar2(s)
 	fmt.Println(s)
+
+	var a = 10
+	var p *int = &a
+	f1(p)
+	fmt.Println(a)
 }
