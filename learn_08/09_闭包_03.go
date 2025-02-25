@@ -27,4 +27,12 @@ func main() {
 	foo3()
 	n := foo3()
 	fmt.Println(n)
+
+	bar3 := counter(bar3)
+	bar3()
+	bar3()
+	bar3()
+	bar3()
+	n2 := bar3()
+	fmt.Println(n2)
 }
