@@ -25,7 +25,7 @@ type WeChatPay struct {
 }
 
 func (w WeChatPay) pay() string {
-	fmt.Println("AliPay 支付")
+	fmt.Println("WeChatPay 支付")
 	return "WeChatPay"
 }
 
@@ -33,8 +33,14 @@ type YinLianPay struct {
 }
 
 func (Y YinLianPay) pay() string {
-	fmt.Println("AliPay 支付")
+	fmt.Println("YinLianPay 支付")
 	return "YinLianPay"
+}
+
+func account(p Pay) {
+	// 支付方式的调用
+	var ret = p.pay()
+	fmt.Println(ret)
 }
 
 func main() {
@@ -49,4 +55,20 @@ func main() {
 		重写
 		父类可以引用不同的子类对象
 	*/
+
+	var p1 Pay
+	p1 = AliPay{}
+	p1.pay()
+	p1 = WeChatPay{}
+	p1.pay()
+	p1 = YinLianPay{}
+	p1.pay()
+
+	p2 := AliPay{}
+	p3 := WeChatPay{}
+	p4 := YinLianPay{}
+
+	account(p2)
+	account(p3)
+	account(p4)
 }
