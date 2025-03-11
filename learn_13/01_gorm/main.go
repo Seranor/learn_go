@@ -73,7 +73,7 @@ func main() {
 
 	// 按条件查询
 	// 字符串查询 结构体查询  map查询
-	var books []Book
+	//var books []Book
 	// db.Where("price > ?", 90).Find(&books)
 	//db.Debug().Where("price in ?", []int{98, 99, 100}).Find(&books)
 	// db.Debug() 打印SQL执行语句 单条
@@ -84,6 +84,29 @@ func main() {
 	//db.Debug().Where(&Book{Title: "西游记", Price: 0}).Find(&books) // 只会查询非零的情况
 
 	// map 查询
-	db.Debug().Where(map[string]interface{}{"Title": "西游记", "Price": 96}).Find(&books)
+	//db.Debug().Where(map[string]interface{}{"Title": "西游记", "Price": 96}).Find(&books)
+	//fmt.Println(books)
+
+	// select 查询
+	// 查询所有书籍的名称和价格
+	/*	var books []Book
+		//db.Debug().Select("Title", "Price").Find(&books)
+		db.Debug().Omit("Price").Find(&books) // 除了 Price 其他都需要
+		fmt.Println(books)*/
+
+	// NOT 和 OR
+	/*	var books []Book
+		//db.Debug().Not("price > ?", 95).Find(&books) // 排除
+
+		db.Debug().Where("price > ?", 96).Or("id > ?", 3).Find(&books)
+		fmt.Println(books)*/
+
+	// 排序
+	var books []Book
+	//db.Debug().Order("price,id desc").Find(&books)
+	//fmt.Println(books)
+
+	// limit
+	db.Debug().Limit(2).Offset(2).Find(&books)
 	fmt.Println(books)
 }
