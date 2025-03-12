@@ -9,21 +9,22 @@ var a int
 var wg sync.WaitGroup
 var mu sync.Mutex
 
+// 锁不能复制 lock := mu 否则就失去作用了
 func add() {
 	defer wg.Done()
-	mu.Lock()
 	for i := 0; i < 1000; i++ {
+		mu.Lock()
 		a += i
+		mu.Unlock()
 	}
-	mu.Unlock()
 }
 func sub() {
 	defer wg.Done()
-	mu.Lock()
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 1000; i++ {
+		mu.Lock()
 		a -= i
+		mu.Unlock()
 	}
-	mu.Unlock()
 }
 func main() {
 
